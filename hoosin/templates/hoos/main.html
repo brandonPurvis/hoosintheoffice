@@ -1,4 +1,32 @@
-{% extends "base.html" %}
+{% extends "hoos/base.html" %}
+
 {% block content %}
-    <h1>Hello there</h1>
+    <h1>HOO's in the Office</h1>
+
+    <form>
+        {{ search_form }}
+        <input type="submit">
+    </form>
+
+    <form>
+        {{ update_form }}
+        <input type="submit">
+    </form>
+
+    <p>Storing {{ entry_count }}</p>
+    <table>
+        <tr>
+            <th>Professor</th>
+            <th>Class</th>
+            <th>Hours</th>
+            <th>In Office</th>
+        </tr>
+
+        <tr>
+            <td>Mr.example</td>
+            <td>Exampling 101</td>
+            <td> MWF 1-2pm </td>
+            <td> Yes </td>
+        </tr>
+    </table>
 {% endblock %}

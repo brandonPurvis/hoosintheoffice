@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+
+class HoursEnrty(models.Model):
+    professor = models.CharField()
+    course = models.CharField()
+    hours = models.CharField()
