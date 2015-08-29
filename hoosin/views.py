@@ -1,14 +1,26 @@
+from django.http import HttpResponse
 from django.shortcuts import render
+
 from hoosin import forms
 from hoosin import models
+from hoosin import handlers
 
 
 def default(request):
-    test_enrty = models.HoursEntry(professor='Joe Testum', course='TST 2102', hours='MWF:10-1,2-3,4-5')
-    test_enrty.save()
-
+    all_entries = models.HoursEntry.objects.all()
     context = {}
     context.update({'search_form': forms.SearchForm()})
-    context.update({'update_form': models.HoursEntryModelForm()})
-    context.update({'entry_count': len(models.HoursEntry.objects.all())})
+    context.update({'update_form': forms.NewHoursForm()})
+    context.update({'entry_count': len(all_entries)})
+    context.update({'entries': all_entries})
     return render(request, 'hoos/main.html', context=context)
+
+
+def new_hours_submission_hook(request):
+    assert request.method == 'POST'
+    hours_form = forms.NewHoursForm(request.POST)
+    if hours_form.is_valid():
+        form_data = hours_form.cleaned_data
+        handlers.handle_new_hours_forms(form_data)
+        return HttpResponse('Thanks')
+    return HttpResponse('Invalid')

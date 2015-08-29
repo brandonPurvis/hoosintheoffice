@@ -8,12 +8,10 @@
         <input type="submit">
     </form>
 
-    <form>
-        {{ update_form }}
-        <input type="submit">
-    </form>
+    {% include "hoos/new_hours_form.html" %}
 
-    <p>Storing {{ entry_count }}</p>
+    <h2>Storing {{ entry_count }} entries</h2>
+
     <table>
         <tr>
             <th>Professor</th>
@@ -22,11 +20,13 @@
             <th>In Office</th>
         </tr>
 
-        <tr>
-            <td>Mr.example</td>
-            <td>Exampling 101</td>
-            <td> MWF 1-2pm </td>
-            <td> Yes </td>
-        </tr>
+        {% for entry in entries %}
+            <tr>
+                <td>{{ entry.professor }}</td>
+                <td>{{ entry.course }}</td>
+                <td>{{ entry.hours }}</td>
+                <td>{{ entry.is_in_office }}</td>
+            </tr>
+        {% endfor %}
     </table>
 {% endblock %}
