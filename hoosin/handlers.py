@@ -1,6 +1,9 @@
+from django.db.models import Q
+
 from hoosin import models
 
 DAYS = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+
 
 def handle_new_hours_forms(data):
     professor = data['professor']
@@ -21,3 +24,10 @@ def handle_new_hours_forms(data):
         hours=hours,
     )
     new_entry.save()
+
+
+def search(data):
+    query = data['query']
+    query = Q(professor__contains=query) | Q(course__contains=query)
+    matches = models.HoursEntry.objects.filter(query)
+    return matches

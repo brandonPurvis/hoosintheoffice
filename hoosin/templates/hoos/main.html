@@ -3,7 +3,8 @@
 {% block content %}
     <h1>HOO's in the Office</h1>
 
-    <form>
+    <form method="POST" action="search">
+        {% csrf_token %}
         {{ search_form }}
         <input type="submit">
     </form>
