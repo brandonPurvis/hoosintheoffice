@@ -8,8 +8,6 @@
         <input type="submit">
     </form>
 
-    {% include "hoos/new_hours_form.html" %}
-
     <h2>Storing {{ entry_count }} entries</h2>
 
     <table>
@@ -29,4 +27,6 @@
             </tr>
         {% endfor %}
     </table>
+
+    <a href="/new_hours_form">Submit New Office Hours</a>
 {% endblock %}

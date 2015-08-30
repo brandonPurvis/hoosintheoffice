@@ -1,47 +1,36 @@
+{% extends 'hoos/base.html' %}
 
-<form method="POST" action="/new_hours_submit/">
-    {% csrf_token %}
-    {{ update_form.professor.label_tag }}
-    {{ update_form.professor }}
-    </br>
-    {{ update_form.course.label_tag }}
-    {{ update_form.course }}
-    <div name="days">
-        {{ update_form.monday_start.label_tag }}
-        {{ update_form.monday_start }}
-        {{ update_form.monday_stop.label_tag }}
-        {{ update_form.monday_stop }}
-        </br>
-        {{ update_form.tuesday_start.label_tag }}
-        {{ update_form.tuesday_start }}
-        {{ update_form.tuesday_stop.label_tag }}
-        {{ update_form.tuesday_stop }}
-        </br>
-        {{ update_form.wednesday_start.label_tag }}
-        {{ update_form.wednesday_start }}
-        {{ update_form.wednesday_stop.label_tag }}
-        {{ update_form.wednesday_stop }}
-        </br>
-        {{ update_form.thursday_start.label_tag }}
-        {{ update_form.thursday_start }}
-        {{ update_form.thursday_stop.label_tag }}
-        {{ update_form.thursday_stop }}
-        </br>
-        {{ update_form.friday_start.label_tag }}
-        {{ update_form.friday_start }}
-        {{ update_form.friday_stop.label_tag }}
-        {{ update_form.friday_stop }}
-        </br>
-        {{ update_form.saturday_start.label_tag }}
-        {{ update_form.saturday_start }}
-        {{ update_form.saturday_stop.label_tag }}
-        {{ update_form.saturday_stop }}
-        </br>
-        {{ update_form.sunday_start.label_tag }}
-        {{ update_form.sunday_start }}
-        {{ update_form.sunday_stop.label_tag }}
-        {{ update_form.sunday_stop }}
-    </div>
-    <input type="submit">
-</form>
+{% block content %}
+    <h1>Submit New Hours</h1>
 
+    <form method="POST" action="/new_hours_submit/">
+        {% csrf_token %}
+        {{ update_form.professor.label_tag }}
+        {{ update_form.professor }}
+        </br>
+        {{ update_form.course.label_tag }}
+        {{ update_form.course }}
+        <div name="days">
+            <label>Monday:</label>{{ update_form.monday_start }}<label>-</label>{{ update_form.monday_stop }}
+            </br>
+
+            <label>Tuesday:</label>{{ update_form.tuesday_start }}<label>-</label>{{ update_form.tuesday_stop }}
+            </br>
+
+            <label>Wednesday:</label>{{ update_form.wednesday_start }}<label>-</label>{{ update_form.wednesday_stop }}
+            </br>
+
+            <label>Thursday:</label>{{ update_form.thursday_start }}<label>-</label>{{ update_form.thursday_stop }}
+            </br>
+
+            <label>Friday:</label>{{ update_form.friday_start }}<label>-</label>{{ update_form.friday_stop }}
+            </br>
+
+            <label>Saturday:</label>{{ update_form.saturday_start }}<label>-</label>{{ update_form.saturday_stop }}
+            </br>
+
+            <label>Sunday:</label>{{ update_form.sunday_start }}<label>-</label>{{ update_form.sunday_stop }}
+        </div>
+        <input type="submit">
+    </form>
+{% endblock %}

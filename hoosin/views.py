@@ -10,10 +10,16 @@ def default(request):
     all_entries = models.HoursEntry.objects.all()
     context = {}
     context.update({'search_form': forms.SearchForm()})
-    context.update({'update_form': forms.NewHoursForm()})
+
     context.update({'entry_count': len(all_entries)})
     context.update({'entries': all_entries})
     return render(request, 'hoos/main.html', context=context)
+
+
+def go_to_office_hours_form(request):
+    context = {}
+    context.update({'update_form': forms.NewHoursForm()})
+    return render(request, 'hoos/new_hours_form.html', context=context)
 
 
 def new_hours_submission_hook(request):
