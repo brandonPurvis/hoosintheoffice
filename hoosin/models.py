@@ -2,7 +2,6 @@ import re
 import datetime
 
 from django.db import models
-from django.forms import ModelForm
 
 DAYS = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 
@@ -11,7 +10,7 @@ class HoursEntry(models.Model):
     professor = models.CharField(max_length=30)
     course = models.CharField(max_length=20)
     hours = models.CharField(max_length=100)
-    office = models.CharField(max_length=50)
+    office = models.CharField(max_length=50, null=True)
 
     @property
     def is_in_office(self):
