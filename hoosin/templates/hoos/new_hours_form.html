@@ -6,15 +6,14 @@
     <p>Time should be military (ex: 21:00)</p>
     <form method="POST" action="/new_hours_submit/">
         {% csrf_token %}
-        {{ update_form.professor.label_tag }}
         {{ update_form.professor }}
         </br>
-        {{ update_form.course.label_tag }}
         {{ update_form.course }}
         </br>
-        {{ update_form.office.label_tag }}
         {{ update_form.office }}
-        <div name="days">
+
+        <div name="days" class="form-inline">
+            <h2>Hours</h2>
             <label>Monday:</label>{{ update_form.monday_start }}<label>-</label>{{ update_form.monday_stop }}
             </br>
 
