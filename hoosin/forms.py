@@ -8,6 +8,7 @@ class SearchForm(forms.Form):
 class NewHoursForm(forms.Form):
     professor = forms.CharField(max_length=50)
     course = forms.CharField(max_length=50)
+    office = forms.CharField(max_length=50)
 
     monday_start = forms.TimeField(required=False)
     monday_stop = forms.TimeField(required=False)

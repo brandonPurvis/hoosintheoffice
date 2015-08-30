@@ -11,6 +11,7 @@ class HoursEntry(models.Model):
     professor = models.CharField(max_length=30)
     course = models.CharField(max_length=20)
     hours = models.CharField(max_length=100)
+    office = models.CharField(max_length=50)
 
     @property
     def is_in_office(self):
