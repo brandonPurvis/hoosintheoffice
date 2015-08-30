@@ -5,20 +5,19 @@
 
     <form method="POST" action="search">
         {% csrf_token %}
-        {{ search_form }}
-        <input type="submit">
+        {{ search_form.query }}
     </form>
 
-    <h2>Storing {{ entry_count }} entries</h2>
-
-    <table>
+    <table class="table table-striped table-bordered">
+        <thead>
         <tr>
             <th>Professor</th>
             <th>Class</th>
             <th>Hours</th>
             <th>In Office</th>
         </tr>
-
+        </thead>
+        <tbody>
         {% for entry in entries %}
             <tr>
                 <td>{{ entry.professor }}</td>
@@ -27,6 +26,7 @@
                 <td>{{ entry.is_in_office }}</td>
             </tr>
         {% endfor %}
+        </tbody>
     </table>
 
     <a href="/new_hours_form">Submit New Office Hours</a>
