@@ -8,6 +8,8 @@ from hoosin import handlers
 
 def default(request):
     all_entries = models.HoursEntry.objects.all()
+    all_entries = [entry for entry in all_entries]
+    all_entries = sorted(all_entries, key=lambda x: x.professor)
     context = {}
     context.update({'search_form': forms.SearchForm()})
 
