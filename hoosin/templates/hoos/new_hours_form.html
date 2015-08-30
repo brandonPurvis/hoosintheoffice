@@ -2,7 +2,8 @@
 
 {% block content %}
     <h1>Submit New Hours</h1>
-
+    <p>Not all fields are require.</p>
+    <p>Time should be military (ex: 21:00)</p>
     <form method="POST" action="/new_hours_submit/">
         {% csrf_token %}
         {{ update_form.professor.label_tag }}
