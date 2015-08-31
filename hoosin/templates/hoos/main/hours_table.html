@@ -1,13 +1,4 @@
-{% extends "hoos/base.html" %}
-
-{% block content %}
-    <h1>HOO's in the Office</h1>
-
-    <form method="POST" action="search">
-        {% csrf_token %}
-        {{ search_form.query }}
-    </form>
-
+{% block hours_table %}
     <table class="table table-striped table-bordered">
         <thead>
         <tr>
@@ -28,6 +19,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="/new_hours_form">Submit New Office Hours</a>
 {% endblock %}

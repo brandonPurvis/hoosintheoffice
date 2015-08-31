@@ -1,0 +1,6 @@
+{% block search_form %}
+    <form method="POST" action="search">
+        {% csrf_token %}
+        {{ search_form.query }}
+    </form>
+{% endblock %}

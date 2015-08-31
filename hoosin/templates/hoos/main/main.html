@@ -1,0 +1,10 @@
+{% extends "hoos/base.html" %}
+
+{% block content %}
+    {% include "hoos/main/search_form.html" %}
+
+    {% include "hoos/main/hours_table.html" %}
+
+    <a href="/new_hours_form">Submit New Office Hours</a>
+{% endblock %}
+
