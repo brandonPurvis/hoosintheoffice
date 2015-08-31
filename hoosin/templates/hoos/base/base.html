@@ -11,9 +11,11 @@
 </head>
 
 <body>
+    <div>
+        {% include "hoos/base/nav_bar.html" %}
+    </div>
     <div class="container">
         {% block top %}
-            <h1>Hoo's in the Office?</h1>
         {% endblock %}
 
         {% block content %}

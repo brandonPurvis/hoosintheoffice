@@ -1,10 +1,10 @@
-{% extends "hoos/base.html" %}
+{% extends "hoos/base/base.html" %}
 
 {% block content %}
     {% include "hoos/main/search_form.html" %}
 
     {% include "hoos/main/hours_table.html" %}
 
-    <a href="/new_hours_form">Submit New Office Hours</a>
+    <a class="btn btn-primary" href="/new_hours_form">Submit New Office Hours</a>
 {% endblock %}
 
