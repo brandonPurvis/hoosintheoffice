@@ -4,8 +4,10 @@
         <tr>
             <th>Professor</th>
             <th>Class</th>
+            <th>Office</th>
             <th>Hours</th>
             <th>In Office</th>
+            <th>Add to Calendar</th>
         </tr>
         </thead>
         <tbody>
@@ -13,8 +15,16 @@
             <tr>
                 <td>{{ entry.professor }}</td>
                 <td>{{ entry.course }}</td>
-                <td>{{ entry.hours }}</td>
-                <td>{{ entry.is_in_office }}</td>
+                <td>{{ entry.office }}</td>
+                <td>{{ entry.show_hours }}</td>
+                <td>
+                    {% if entry.is_in_office %}
+                        <b>Yes</b>
+                    {% else %}
+                        No
+                    {% endif%}
+                </td>
+                <td><a href={{ entry.calendar_url }}>Add to Calendar</a></td>
             </tr>
         {% endfor %}
         </tbody>

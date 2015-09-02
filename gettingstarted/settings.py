@@ -109,6 +109,19 @@ USE_TZ = True
 # Parse database configuration from $DATABASE_URL
 DATABASES['default'] = dj_database_url.config()
 
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'python_getting_started',
+        'USER': 'brandonpurvis',
+        'PASSWORD': 'python',
+        'HOST': '',
+        'PORT': '',
+    }
+}
+
+
 # Enable Connection Pooling (if desired)
 # DATABASES['default']['ENGINE'] = 'django_postgrespool'
 

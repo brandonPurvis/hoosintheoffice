@@ -8,7 +8,7 @@ from hoosin import handlers
 
 def default(request, entries=None):
     if not entries:
-        all_entries = models.HoursEntry.objects.all()
+        all_entries = models.NewHoursEntry.objects.all()
     else:
         all_entries = entries
     all_entries = [entry for entry in all_entries]
@@ -32,7 +32,7 @@ def new_hours_submission_hook(request):
     hours_form = forms.NewHoursForm(request.POST)
     if hours_form.is_valid():
         form_data = hours_form.cleaned_data
-        handlers.handle_new_hours_forms(form_data)
+        handlers.new_handle_new_hours_form(form_data)
         return HttpResponse('Thanks')
     return HttpResponse('Invalid')
 
