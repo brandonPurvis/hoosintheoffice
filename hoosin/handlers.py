@@ -58,5 +58,5 @@ def new_handle_new_hours_form(data):
 def search(data):
     query = data['query']
     query = Q(professor__contains=query) | Q(course__contains=query)
-    matches = models.HoursEntry.objects.filter(query)
+    matches = models.NewHoursEntry.objects.filter(query)
     return matches
