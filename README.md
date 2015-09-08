@@ -1,3 +1,4 @@
 # HOOS in the Office
+Hosted at **[hoosintheoffice.herokuapp.com](https://hoosintheoffice.herokuapp.com)**
 
-Heroku hosted service creating one spot to look for UVA professors office hours.
+Site for crowdsourcing UVA professors office hours.
