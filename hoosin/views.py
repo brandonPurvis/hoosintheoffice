@@ -4,6 +4,7 @@ from django.shortcuts import render
 from hoosin import forms
 from hoosin import models
 from hoosin import handlers
+from hoosin import utils
 
 
 def default(request, entries=None):
@@ -18,6 +19,7 @@ def default(request, entries=None):
     context.update({'search_form': forms.SearchForm()})
     context.update({'entry_count': len(all_entries)})
     context.update({'entries': all_entries})
+    context.update({'current_time': utils.get_current_time_string()})
     return render(request, 'hoos/main/main.html', context=context)
 
 

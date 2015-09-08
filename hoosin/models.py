@@ -75,7 +75,7 @@ class NewHoursEntry(models.Model):
 
     @property
     def is_in_office(self):
-        now = datetime.datetime.now()
+        now = utils.get_current_time()
         hours = self.hours
 
         todays_hours = hours.get(str(now.weekday()))
@@ -87,7 +87,7 @@ class NewHoursEntry(models.Model):
 
     @property
     def next_hours(self):
-        now = datetime.datetime.now()
+        now = utils.get_current_time()
         hours = self.hours
 
         days = hours.keys()
