@@ -20,3 +20,21 @@ def get_current_time():
 def get_current_time_string():
     now = datetime.now(tz=EST)
     return now.strftime('%H:%M')
+
+
+def datetime_to_google_string(d):
+    year = d.year
+    month = d.month
+    day = d.day
+
+    hour = d.hour + 4
+    minute = d.minute
+
+    s = '{}{:02}{:02}T{:02}{:02}00Z'.format(
+        year,
+        month,
+        day,
+        hour,
+        minute
+    )
+    return s

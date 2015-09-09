@@ -114,14 +114,16 @@ class NewHoursEntry(models.Model):
         next_hours = self.next_hours
         next_end = next_hours + datetime.timedelta(hours=1)
 
-        start = next_hours.strftime('%Y%m%dT%H%M00Z')
-        stop = next_end.strftime('%Y%m%dT%H%M00Z')
+        # start = next_hours.strftime('%Y%m%dT%H%M00Z')
+        start = utils.datetime_to_google_string(next_hours)
+        # stop = next_end.strftime('%Y%m%dT%H%M00Z')
+        stop = utils.datetime_to_google_string(next_end)
         time_string = '/'.join([start, stop])
 
         url = "http://www.google.com/calendar/event?action=TEMPLATE"
         attrs = {
             'text': "{} Office hours".format(self.course),
-            'dates': time_string, # &dates=[start-custom format='Ymd\\THi00\\Z']/[end-custom format='Ymd\\THi00\\Z']
+            'dates': time_string,
             'details': "Office hours for professor {} in {}".format(self.professor, self.office),
             'location': self.office,
             'trp': False,
